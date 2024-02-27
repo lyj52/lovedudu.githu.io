@@ -1,38 +1,110 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Staff Management System</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-    $(document).ready(function() {
-        // 查询与搜索
-        $("#searchForm").on("submit", function(e) {
-            e.preventDefault();
-            var searchValue = $("#searchInput").val();
-            $.ajax({
-                type: "POST",
-                url: "search.php",
-                data: { search: searchValue },
-                success: function(result) {
-                    $("#searchResults").html(result);
-                }
-            });
-        });
-
-        // 导出
-        $("#exportButton").click(function(e) {
-            window.location.href = "export.php";
-        });
-    });
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 740px;
+            margin: 0 auto;
+            padding: 190px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-top: 0;
+        }
+        
+        .video-container {
+            margin-top: 20px;
+            position: relative;
+            padding-bottom: 56.25%;
+            padding-top: 30px;
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .message {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .balloon-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .balloon {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #ff85a2;
+            border-radius: 50%;
+            animation: float 5s infinite;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translate(0, 0);
+            }
+            50% {
+                transform: translate(0, -100px);
+            }
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Staff Management System</h1>
-    <form id="searchForm">
-        <input type="text" id="searchInput" placeholder="Search by name">
-        <input type="submit" value="Search">
-    </form>
-    <button id="exportButton">Export</button>
-    <div id="searchResults"></div>
+    <div class="container">
+        <h1>嘟嘟老婆</h1>
+        <div class="video-container">
+            <iframe src="你的视频链接" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="message">
+            <p>我爱你</p>
+        </div>
+        <div class="balloon-container">
+            <!-- 在这里添加 520 个漂浮的气球 -->
+            <!-- 使用 JavaScript 动态生成气球元素 -->
+        </div>
+    </div>
+    <script>
+        const balloonContainer = document.querySelector('.balloon-container');
+
+        for (let i = 0; i < 520; i++) {
+            const balloon = document.createElement('div');
+            balloon.classList.add('balloon');
+            balloon.style.top = `${Math.random() * 100}%`;
+            balloon.style.left = `${Math.random() * 100}%`;
+            balloon.style.animationDelay = `${Math.random() * 5}s`;
+            balloonContainer.appendChild(balloon);
+        }
+    </script>
 </body>
 </html>
