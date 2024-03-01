@@ -1,110 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .container {
-            max-width: 740px;
-            margin: 0 auto;
-            padding: 190px;
-            background-color: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
-        
-        h1 {
-            text-align: center;
-            margin-top: 0;
-        }
-        
-        .video-container {
-            margin-top: 20px;
-            position: relative;
-            padding-bottom: 56.25%;
-            padding-top: 30px;
-            height: 0;
-            overflow: hidden;
-        }
-        
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        
-        .message {
-            margin-top: 20px;
-            text-align: center;
-        }
-        
-        .balloon-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-        
-        .balloon {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: #ff85a2;
-            border-radius: 50%;
-            animation: float 5s infinite;
-        }
-        
-        @keyframes float {
-            0% {
-                transform: translate(0, 0);
-            }
-            50% {
-                transform: translate(0, -100px);
-            }
-            100% {
-                transform: translate(0, 0);
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title></title>
+<!-- 这里可以添加CSS样式链接 -->
+<link rel="stylesheet" href="styles.css">
+<style>
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 20px;
+  }
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>嘟嘟老婆</h1>
-        <div class="video-container">
-            <iframe src="你的视频链接" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <div class="message">
-            <p>我爱你</p>
-        </div>
-        <div class="balloon-container">
-            <!-- 在这里添加 520 个漂浮的气球 -->
-            <!-- 使用 JavaScript 动态生成气球元素 -->
-        </div>
-    </div>
-    <script>
-        const balloonContainer = document.querySelector('.balloon-container');
 
-        for (let i = 0; i < 520; i++) {
-            const balloon = document.createElement('div');
-            balloon.classList.add('balloon');
-            balloon.style.top = `${Math.random() * 100}%`;
-            balloon.style.left = `${Math.random() * 100}%`;
-            balloon.style.animationDelay = `${Math.random() * 5}s`;
-            balloonContainer.appendChild(balloon);
-        }
-    </script>
+<header>
+  <h1>欢迎您的到来</h1>
+  <nav>
+    <ul>
+      <li><a href="#">首页</a></li>
+      <li><a href="#">关于我们</a></li>
+      <li><a href="#">产品介绍</a></li>
+      <li><a href="http://api.starchent.top/API/qqtz.php?qq=564992150">联系我们</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section id="company-info">
+    <h2>公司简介</h2>
+    <p>我们是一家领先的公司，专注于创新和技术驱动的产品。</p>
+  </section>
+
+  <section id="job-details">
+    <p>我们的业务范围涵盖了多个领域，包括云计算、大数据、人工智能、物联网等。我们不仅能够为客户提供高品质的软硬件产品和服务，还能够根据客户的具体需求，量身定制符合其业务场景的技术方案。</p>
+    <ul>
+      <li></li>
+      <li>我们的优势在于拥有先进的技术研发能力和丰富的行业经验。我们不断跟进最新的技术趋势，持续投入研发，保持技术领先。同时，我们深入了解行业需求，能够为客户提供最符合其实际业务场景的技术解决方案。</li>
+    
+    </ul>
+  </section>
+
+  <section id="application-form">
+    <h2>加入我们</h2>
+    <form action="submit-job.php" method="post">
+      <div>
+        <label for="name">姓名:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div>
+        <label for="email">电子邮件:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div>
+        <label for="resume">上传文件:</label>
+        <input type="file" id="resume" name="resume" required>
+      </div>
+      <div>
+        <label for="cover-letter">附件:</label>
+        <textarea id="cover-letter" name="cover-letter" required></textarea>
+      </div>
+      <div>
+        <button type="submit">提交申请</button>
+      </div>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <p>© 2024  xxx所有权利保留.</p>
+</footer>
+
+<!-- 这里可以添加JavaScript脚本链接 -->
+<script src="scripts.js"></script>
+
 </body>
 </html>
