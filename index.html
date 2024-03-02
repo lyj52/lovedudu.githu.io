@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title></title>
-<!-- 这里可以添加CSS样式链接 -->
+<title>求职申请</title>
 <link rel="stylesheet" href="styles.css">
 <style>
 @media screen and (max-width: 600px) {
@@ -35,17 +34,12 @@
   </section>
 
   <section id="job-details">
-    <p>我们的业务范围涵盖了多个领域，包括云计算、大数据、人工智能、物联网等。我们不仅能够为客户提供高品质的软硬件产品和服务，还能够根据客户的具体需求，量身定制符合其业务场景的技术方案。</p>
-    <ul>
-      <li></li>
-      <li>我们的优势在于拥有先进的技术研发能力和丰富的行业经验。我们不断跟进最新的技术趋势，持续投入研发，保持技术领先。同时，我们深入了解行业需求，能够为客户提供最符合其实际业务场景的技术解决方案。</li>
-    
-    </ul>
+    <!-- 这里可以添加职位描述或其他相关信息 -->
   </section>
 
   <section id="application-form">
     <h2>加入我们</h2>
-    <form action="submit-job.php" method="post">
+    <form id="job-application-form">
       <div>
         <label for="name">姓名:</label>
         <input type="text" id="name" name="name" required>
@@ -60,21 +54,40 @@
       </div>
       <div>
         <label for="cover-letter">留言:</label>
-        <textarea id="cover-letter" name="cover-letter" required></textarea>
+        <textarea id="cover-letter" name="cover-letter" rows="4" required></textarea>
       </div>
       <div>
         <button type="submit">提交申请</button>
       </div>
     </form>
   </section>
-</main>
 
-<footer>
-  <p>© 2024  xxx所有权利保留.</p>
-</footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // 获取表单元素
+      var form = document.getElementById('job-application-form');
 
-<!-- 这里可以添加JavaScript脚本链接 -->
-<script src="scripts.js"></script>
+      // 为表单添加提交事件监听器
+      form.addEventListener('submit', function(event) {
+        // 阻止表单默认的提交行为
+        event.preventDefault();
 
+        // 获取表单输入的值
+        var name = document.querySelector('#name').value;
+        var email = document.querySelector('#email').value;
+        var resume = document.querySelector('#resume').files[0];
+        var coverLetter = document.querySelector('#cover-letter').value;
+
+        // 显示提交成功的提示消息
+        alert('申请已提交！\n姓名: ' + name + '\n电子邮件: ' + email + '\n留言: ' + coverLetter);
+
+        // 可选：将表单数据发送到服务器（这里仅显示消息，未实际发送数据）
+        // 您可以使用Ajax或其他方法将数据发送到服务器进行处理
+
+        // 清空表单输入字段（可选）
+        form.reset();
+      });
+    });
+  </script>
 </body>
 </html>
